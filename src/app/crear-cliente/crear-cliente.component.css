@@ -1,0 +1,9 @@
+.date-colomn{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: end;
+}

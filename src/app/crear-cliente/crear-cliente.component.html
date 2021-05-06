@@ -1,0 +1,75 @@
+<div class="container">
+
+    <form [formGroup]="formGroup" (ngSubmit)="validarFormulario()">
+        <div class="row mt-3">
+            <div class="col-12">
+                <label for="nombre" class="form-label">Ingrese el nombre:</label> 
+                <input type="text"  
+                        class="form-control" 
+                        [class.is-invalid]="nombreValidation"                                   
+                        id="nombre" 
+                        placeholder="Ingrese un nombre" 
+                        formControlName="nombre">
+            </div>
+
+            <small *ngIf="nombreValidation" class="text-danger">Debe ingresar el nombre.</small>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <label for="apellido" class="form-label">Ingrese el apellido:</label> 
+                <input type="text"  
+                        class="form-control" 
+                        [class.is-invalid]="apellidoValidation"                                   
+                        id="apellido" 
+                        placeholder="Ingrese un apellido" 
+                        formControlName="apellido">
+            </div>
+
+            <small *ngIf="apellidoValidation" class="text-danger">Debe ingresar el apellido.</small>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <label for="edad" class="form-label">Ingrese su edad</label> 
+                <input type="text"
+                        class="form-control"                        
+                        id="edad"
+                        placeholder="Ingrese edad"
+                        formControlName="edad">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <label for="fechaNacimiento" class="form-label">Ingrese su fecha de nacimiento:</label> 
+            </div>
+            <div class="col-12 date-colomn">
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker
+                           name="dp" [(ngModel)]="model" [footerTemplate]="footerTemplate" 
+                           #dp="ngbDatepicker" formControlName="fechaNacimiento">
+
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
+                            <i class="bi bi-calendar3"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 submit-btn">
+                <button type="submit" class="btn btn-outline-primary btn-lg">Enviar</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<ng-template #footerTemplate>
+    <hr class="my-0">
+    <button class="btn btn-primary btn-sm m-2 float-left" (click)="model = today; dp.close()">Today</button>
+    <button class="btn btn-secondary btn-sm m-2 float-right" (click)="dp.close()">Close</button>
+</ng-template>

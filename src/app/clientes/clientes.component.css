@@ -1,0 +1,10 @@
+table {
+    width: 100%;
+}
+
+.label-txt-cliente {
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgba(214, 12, 12, 0.678);
+}
