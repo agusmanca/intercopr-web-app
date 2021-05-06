@@ -7,3 +7,17 @@
     display: flex;
     justify-content: end;
 }
+
+.dp-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dp-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.back-btn {
+    cursor: pointer;
+}

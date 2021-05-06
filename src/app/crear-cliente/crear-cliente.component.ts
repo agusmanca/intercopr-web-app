@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {NgbDateStruct, NgbCalendar, NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
-import Swal from 'sweetalert2';
 import { Cliente, ClienteService } from '../service/cliente.service';
+import Swal from 'sweetalert2';
+import { NgxSpinnerService } from 'ngx-bootstrap-spinner';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -22,7 +23,8 @@ export class CrearClienteComponent implements OnInit {
   
   constructor(private fb: FormBuilder, 
               private calendar: NgbCalendar, 
-              private router: Router, 
+              private router: Router,
+              private spinner: NgxSpinnerService,
               private clienteService: ClienteService) { 
 
       this.formGroup = this.fb.group({
@@ -57,16 +59,21 @@ export class CrearClienteComponent implements OnInit {
           }).then((result) => {            
                 if(result.isConfirmed) {
                     let newCliente: Cliente = this.crearUsuario();
+                    this.spinner.show();
                                         
                     this.clienteService.setCliente(newCliente).subscribe((data: Cliente) => {
                         if(data){
-                          Swal.fire('Usuario agregado!', 'El usuario se agrego correctamente.', 'success');
+                          Swal.fire('Usuario agregado!', 'El usuario se agrego correctamente.', 'success').then(() => {
+                              this.router.navigate(['clientes']);
+                          });
                         } else {
                           Swal.fire('Error - proceso cancelado', 'Intente nuevamente mas tarde.', 'error');                        
                         }
+                        this.spinner.hide();
                     }, 
                     (err) => {
                         Swal.fire('Error - Usuario no ingresado', 'Intente nuevamente mas tarde.', 'error');
+                        this.spinner.hide();
                     });
                 }
           });           
