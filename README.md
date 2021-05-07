@@ -1,27 +1,27 @@
-# IntercorpAppWeb
+# Intercorp Web App
+La siguiente aplicación SPA permite visualizar los datos expuestos en la REST Api desarrollada para este challenge a partir del uso del framwork Angular,
+haciendo uso del lenguaje typescript.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+Consta de 4 módulos: `una pantalla de bienvenida`, `un area para ver la lista de clientes`, `un formulario para la creación de clientes` y `un area para obervar los valores de media y desvio en relacion a la edad de los clientes`.
 
-## Development server
+## Despliegue
+La aplicación se desplego en el servicio Firebase de google segun lo requerido.
+Puede accederse a la aplicación a partir de la siguiente URL: [ingrese aquí](https://intercorp-app-web-amanca.web.app)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+  https://intercorp-app-web-amanca.web.app
+````
 
-## Code scaffolding
+Cabe aclarar que para el desarrollo de la misma se hizo uso de nuemerosas dependencias y librerias por lo que de probar localmente deberá realzarse la instalación de dichos componentes:
+```
+  - npm install
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Alguna de las librerias usadas son: 
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+  - bootstrap
+  - ng Bootstrap
+  - sweetAlert2
+  - NgxSpinnerModule (para el loader)
+```
