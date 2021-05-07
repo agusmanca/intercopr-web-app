@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  basePath: 'https://amanca-intercorp-rest-api.herokuapp.com'
+  basePath: 'https://intercorp-rest-api-amanca.herokuapp.com'
 };

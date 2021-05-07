@@ -7,6 +7,7 @@ import { PromedioComponent } from './promedio/promedio.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', component: IndexComponent },
   { path: 'home', component: IndexComponent },
   { path: 'clientes', component: ClientesComponent },
   { path: 'crear-cliente', component: CrearClienteComponent },
